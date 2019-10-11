@@ -5,7 +5,7 @@ using namespace std;
 
 class Customer {
 private:
-	int id;
+	int ID;
 	string name;
 	string address;
 	string city;
@@ -15,7 +15,6 @@ private:
 
 public:
 	Customer();
-
 	bool setID(int);
 	int getID();
 	bool setName(string);
@@ -30,7 +29,6 @@ public:
 	int getZipCode();
 	bool setAccountBalance(float);
 	float getAccountBalance();
-
 	~Customer();
 };
 

@@ -1,24 +1,18 @@
 #include "Customer.hpp"
 
 Customer::Customer() {
-	id = 1234;
-	name = "John Smith";
-	address = "1120 Chestnut Lane";
-	city = "Livermore";
-	state = "California";
-	zipCode = 60450;
-	accountBalance = 0.00;
+
 }
 
 bool Customer::setID(int idNum) {
 	if (idNum <= 0)
 		return false;
-	id = idNum;
+	ID = idNum;
 	return true;
 }
 
 int Customer::getID() {
-	return id;
+	return ID;
 }
 
 bool Customer::setName(string newName) {
@@ -87,16 +81,7 @@ float Customer::getAccountBalance() {
 	return accountBalance;
 }
 
-
 Customer::~Customer() {
 
 }
-
-
-
-
-
-
-
-
 

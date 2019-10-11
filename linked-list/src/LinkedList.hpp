@@ -10,21 +10,24 @@ struct node {
 class LinkedList {
 private:
 	node *head;
-	int size(node*);
 	void push_back(node*, node*);
+	int size(node*);
 	void print_list(node*);
+	Customer* pop_back(node*, Customer*);
 
 public:
 	LinkedList();
-	int size();
 	void push_back(Customer*);
-	void print_list();
-	bool exists(int);
-	Customer* find(int);
-	void delete_list();
 	void push_front(Customer*);
-//	Customer* pop_front ();
-	virtual ~LinkedList();
+	int size();
+	void delete_list();
+	void print_list();
+	Customer* pop_front();
+	Customer* pop_back();
+	Customer* find(int);
+	bool exists(int);
+	bool deleteIt(int);
+	~LinkedList();
 
 };
 

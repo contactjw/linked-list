@@ -2,50 +2,51 @@
 #include "Customer.hpp"
 #include "LinkedList.hpp"
 using namespace std;
+int main(int argc, const char * argv[]) {
+	LinkedList *myList = new LinkedList;
+	int custIDSearch = 40;
+	cout << "Size of the list is: " << myList->size() << endl;
 
+	Customer* theCust = nullptr;
+	for (int i = 0; i < 100; i += 10) {
+		theCust = new Customer();
+		theCust->setID(i);
+		myList->push_back(theCust);
+	} //for
+	theCust = new Customer();
+	theCust->setID(22);
+	myList->push_front(theCust);
+	cout << "Size of the list is: " << myList->size() << endl;
+	myList->print_list();
 
-int main()
-{
-	LinkedList *newList = new LinkedList;
-	Customer *newCustomer = new Customer;
-	Customer *newCustomer2 = new Customer;
-	Customer *newCustomer3 = new Customer;
-	Customer *newCustomer4 = new Customer;
-	Customer *newCustomer5 = new Customer;
+	if (myList->exists(custIDSearch)) {
+		cout << "Customer #" << custIDSearch << " exists" << endl;
+	} //if
+	else {
+		cout << "Customer #" << custIDSearch << " does not exist" << endl;
+	} //else
+	if (myList->find(custIDSearch) != nullptr) {
+		cout << "Customer #" << custIDSearch << " was found" << endl;
+	} //if
+	else {
+		cout << "Customer #" << custIDSearch << " was not found" << endl;
+	} //else
 
-	cout << "Size of list: " << newList->size() << endl;
+	if (myList->deleteIt(90)) {
+		cout << "Node 90 deleted OK" << endl;
+	} //if
+	else {
+		cout << "Node 90 not deleted OK" << endl;
+	}
+	//cout << "Popping from the front of the list till empty" << endl;
+	cout << "Popping from the back of the list till empty" << endl;
+	int sizeOfList = myList->size();
+	for (int i = 0; i < sizeOfList; i++) {
+		//cout << myList->pop_front()->ID << endl;
+		cout << myList->pop_back()->getID() << endl;
+	} //for
 
-	int checkID = 1234;
-
-	newCustomer->setID(1234);
-	newCustomer2->setID(5678);
-	newCustomer3->setID(8675309);
-	newCustomer4->setID(4032);
-	newCustomer5->setID(9503);
-
-	newList->push_back(newCustomer);
-	cout << "Size of list: " << newList->size() << endl;
-	newList->print_list();
-
-
-	newList->push_front(newCustomer2);
-
-	newList->push_back(newCustomer3);
-
-	cout << "Size of list: " << newList->size() << endl;
-
-	newList->print_list();
-
-	if (newList->exists(checkID))
-		cout << "Found ID!" << endl;
-	else
-		cout << "Couldn't find that id..." << endl;
-
-	if (newList->find(432) != nullptr)
-		cout << "Found ID!" << endl;
-	else
-		cout << "Couldn't find that id..." << endl;
-
-
+	cout << "Size of the list is: " << myList->size() << endl;
+	cout << "Program ending, have a nice day" << endl;
 	return 0;
 }
